@@ -47,7 +47,7 @@
     <script>
         (function(d, ver) {
             var s = d.createElement('script');
-            s.src = './dist/all.js?' + ver;
+            s.src = './all.js?' + ver;
             s.async = true;
 
             var container = d.getElementById('vk-music-container');
@@ -60,7 +60,7 @@
             if (container) {
                 s.onload = function() {
                     var special = new VKMusic.Special({
-                        css: './dist/all.css?' + ver,
+                        css: './all.css?' + ver,
                         container: container,
                         share: {
                             url: 'https://vc.ru/special/url',
