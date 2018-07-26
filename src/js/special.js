@@ -241,6 +241,7 @@ class Special extends BaseSpecial {
     makeNextQuestion() {
         let question = this.questions.list[this.activeIndex];
 
+        this.player.setCurrentTime(0);
         this.setSliderPosition(0);
         this.drawArt(question.art);
         this.fillDot();

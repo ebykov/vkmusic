@@ -79,28 +79,23 @@ export default class Player {
         EL.time = makeElement('div', 'VKMusic-audio__time', {
             textContent: '0:00'
         }),
-        EL.audio = makeElement('audio', null, {
-            type: 'audio/mpeg'
-        }),
-        EL.source = makeElement('source');
 
         EL.path.appendChild(EL.pathProgress);
-        EL.audio.appendChild(EL.source);
         EL.player.appendChild(EL.btn);
         EL.player.appendChild(EL.path);
         EL.player.appendChild(EL.time);
-        EL.player.appendChild(EL.audio);
 
         this.el.appendChild(EL.player);
+        this.audio = new Audio();
     }
 
     play() {
-        EL.audio.play();
+        this.audio.play();
         EL.btn.classList.add('VKMusic-audio__btn--pause');
     }
 
     pause() {
-        EL.audio.pause();
+        this.audio.pause();
         EL.btn.classList.remove('VKMusic-audio__btn--pause');
     }
 
@@ -115,12 +110,15 @@ export default class Player {
     setTrack(link) {
         this.pause();
         this.setPathProgress(0);
-        EL.source.src = link;
-        EL.audio.load();
+        this.audio.src = link;
+        // this.audio.src = 'http://www.lukeduncan.me/oslo.mp3';
+        // this.audio.src = 'http://labs.qnimate.com/files/mp3.mp3';
+        // this.audio.type = 'audio/mp3';
+        this.audio.load();
     }
 
     onClick() {
-        EL.audio.paused ? this.play() : this.pause();
+        this.audio.paused ? this.play() : this.pause();
     }
 
     onProgress(e) {
@@ -135,14 +133,15 @@ export default class Player {
         EL.btn.classList.remove('VKMusic-audio__btn--pause');
     }
 
-    bindEvents() {
+    initEvents() {
         EL.btn.addEventListener('click', this.onClick.bind(this));
-        EL.audio.addEventListener('timeupdate', this.onProgress.bind(this));
-        EL.audio.addEventListener('ended', this.onEnded.bind(this));
+
+        this.audio.addEventListener('timeupdate', this.onProgress.bind(this));
+        this.audio.addEventListener('ended', this.onEnded.bind(this));
     }
 
     init() {
         this.createPlayer();
-        this.bindEvents();
+        this.initEvents();
     }
 }

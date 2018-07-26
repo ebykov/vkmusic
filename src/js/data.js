@@ -22,7 +22,7 @@ export default {
         title: "сэмплы",
         list: [{
             text: "Какой трек начинается с этого семпла?",
-            track: "https://freemusicarchive.org/file/music/WFMU/Black_Ant/Joanna_Preciado/Black_Ant_-_08_-_realest_year_9.mp3",
+            track: "audio/1.mp3",
             art: [{
                 x: 0,
                 y: 0,
@@ -406,21 +406,21 @@ export default {
         range: [0, 1],
         title: "Пропускаю, пропускаю!",
         subtitle: "На шоу Валдиса Пельша вам лучше не ходить",
-        img: "dist/img/results/1.png"
+        img: "img/results/1.png"
     }, {
         range: [2, 4],
         title: "Ага, ну",
         subtitle: "Вы больше по классике",
-        img: "dist/img/results/2.png"
+        img: "img/results/2.png"
     }, {
         range: [5, 9],
         title: "Реп — мой хлеб",
         subtitle: "Вы знаете всех Lil’ов",
-        img: "dist/img/results/3.png"
+        img: "img/results/3.png"
     }, {
         range: [10, 10],
         title: "Меломан",
         subtitle: "Знаете всю музыку — от йодля до трип-хопа",
-        img: "dist/img/results/4.png"
+        img: "img/results/4.png"
     }]
 };

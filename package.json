@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack",
-    "build": "cross-env NODE_ENV=prod webpack"
+    "build": "cross-env NODE_ENV=prod webpack",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "browser-sync-webpack-plugin": "^2.2.2",
     "css-loader": "^0.28.9",
     "extract-text-webpack-plugin": "^3.0.2",
+    "gh-pages": "^1.2.0",
     "imports-loader": "^0.8.0",
     "postcss-loader": "^2.1.0",
     "style-loader": "^0.20.1",

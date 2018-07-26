@@ -29,7 +29,7 @@ if (isProduction) {
         new BrowserSyncPlugin({
             port: 3000,
             server: {
-                baseDir: './'
+                baseDir: './dist'
             },
             // https: true,
             ghostMode: false,
