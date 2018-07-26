@@ -32,6 +32,7 @@
     "webpack": "^3.11.0"
   },
   "dependencies": {
-    "cmtt-likely": "^1.2.1"
+    "cmtt-likely": "^1.2.1",
+    "cross-env": "^5.2.0"
   }
 }

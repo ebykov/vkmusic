@@ -5,65 +5,626 @@
 @import 'keyframes'
 
 // base.styl подключается только в том случае, когда спецпроект расположен на отдельной странице
-// @import 'base'
+@import 'base'
 
-$colors = {
-    white: #ffffff,
-    black: #000000
-}
+$colors = {}
 
-// FYI: на десктопе на странице статьи максимальная ширина контейнера — 1060px. В ленте сайта — 640px.
-// Мобильная версия начинается с 679px, и там ограничений по ширине нет
 
-// Название класса рекомендуется выбирать так, чтобы точно не было конфликтов с существующими спецпроектами.
-// Обычно имени проекта достаточно
-.specialContainer
-    font-size: 16px
-    line-height: 1.5em
-    padding: 15px
-    border: 1px solid $colors.black
-    width: 100%
-    max-width: 600px
-    text-align: center
-    margin: auto
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
+.container
+    width 100%
+    max-width 1090px
+    margin 0 auto
+    padding 0 15px
 
+.VKMusic
+    position relative
+    min-height 604px
+    padding-bottom 20px
+    font-size 16px
+    border 2px solid #6185C2
+    border-radius 10px
+    overflow hidden
+    
+    &--result
+        padding-bottom 0
+        border-color #333333
+    
     @media $mq.not_mobile
-        font-size: 18px
-        padding: 50px
+        padding-bottom 0
+        font-size 18px
 
-    svg
-        display: block
-        fill: currentColor
+    &-wrapper
+        padding 123px 0 75px
 
-    // Для подобных элементов придется сбрасывать стили, если спецпроект не на отдельной странице
-    input,
-    button
-        box-sizing: border-box
-        display: block
-        width: 200px
-        padding: 10px
-        margin: 5px 0
+        &__grid
+            position absolute
+            top 0
+            left 0
+            width 100%
+            height 100%
+            background-color #000
+            background-size 50px 50px, 106px 50px, 106px 50px
+            background-image linear-gradient(#191919 2px, transparent 2px),
+                             linear-gradient(90deg, #191919 2px, transparent 2px),
+                             linear-gradient(90deg, #191919 1px, transparent 1px)
+            background-position 0 24px, 15px 24px, 68px 24px
 
-    .likely
-        display: flex
+            transition filter .1s
+            
+            .is-blurred &
+                filter blur(3px)
+                transition filter .5s
+                
+            @media (min-width 1090px)
+                background-position calc(50% - 53px) 24px, calc(50% - 53px) 24px, center 24px
+                
+    &-container
+        padding 0 15px
+        
+        @media $mq.not_mobile
+            padding 0
+            
+        @media $mq.desktop
+            padding 0 15px
+        
+        @media (min-width 1055px)
+            padding 0
+        
+    &-logo
+        position: absolute;
+        z-index 1
+        top: 13px;
+        right 10px
+        color: #fff;
+        
+        @media $mq.not_mobile
+            right 51px
 
-        &__widget
-            display: flex
-            align-items: center
-            justify-content: center
-            background-color: transparent
-            border: 1px solid
-            height: 40px
-            padding: 0 10px
-            margin: 0 2px
-            color: inherit
+        @media $mq.desktop
+            top: 60px
 
-        &__icon
-            background-color: transparent
+    &-icons
+        position absolute
+        top 50px
+        left 0
+        transition filter .1s
+        
+        .is-blurred &
+            filter blur(2px)
+            transition filter .5s
+            
+        @media $mq.iphone5
+            display none
+        
+        &__item
+            width 50px
+            height 50px
+            padding-top 6px
+            padding-left 7px
+            color #404040
+            
+    &-slider
+        position absolute
+        top 36px
+        bottom 0
+        left 10px
+        right 10px
+        transition filter .1s
+        
+        .is-blurred &
+            filter blur(2px)
+            transition filter .5s
 
+        @media $mq.not_mobile
+            left 74px
+            right 210px
+        
+        &__line
+            position absolute
+            top 0
+            left 87%
+            height 100%
+            width 2px
+            background-color #E5E5E5
+            opacity .5
+            
+            &::before
+                content ''
+                position absolute
+                top 0
+                left -3px
+                width 8px
+                height 10px
+                background-color #E5E5E5
+                
+            &::after
+                content ''
+                position absolute
+                top 10px
+                left -3px
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 4px 4px 0 4px;
+                border-color: #E5E5E5 transparent transparent transparent;
+
+    &-enter
+        position relative
+        z-index 1
+        max-width 100%
+        padding-top 55px
+        padding-left 26px
+        padding-right 10px
+        
+        @media $mq.iphone6
+            max-width 506px
+            padding-top 105px
+            padding-left 52px
+
+        @media $mq.not_mobile
+            max-width 506px
+            padding 0
+            margin-top 105px
+            margin-left 104px
+        
+        &__title
+            color #fff
+            font-size 32px
+            font-weight 700
+            line-height 1.2em
+            
+            @media $mq.not_mobile
+                font-size 36px
+            
+        &__subtitle
+            margin-top: 13px;
+            line-height: 1.5em;
+            color #919191
+            
+        &__desc
+            margin-top 28px
+            color #fff
+            line-height: 1.73em;
+
+            b
+                font-weight 700
+                
+        &__start-btn
+            position relative
+            height 52px
+            padding 0 51px 0 46px
+            margin-top 27px
+            font-weight 700
+            border-radius 100px
+            background-color #fff
+            
+            &::after
+                content ''
+                position absolute
+                top 0
+                bottom 0
+                right 20px
+                margin auto 0
+                width 10px
+                height 13px
+                background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAaCAYAAABYQRdDAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACwSURBVHgBtZVbDQIxFEQHFCABCUgAB0hAAg4WB+AAnKwEJFTCShhuExqSzT7ae4dJzsf+TM6m0xQAOmMwaNyNHQThiGTsEQxn6BAIF3Bbs4Jma1bSZM1GqqzpoF+zppO87au6tPCcsqaAZFzUpYV8zbH5fihz2uJPUf7+S1ma53VWmvYQTko+/kk7b+minad01a61tMqutvRtHODIXOEDged6GJUl44hgbvidbMiu5ANqSxcNX6OcpQAAAABJRU5ErkJggg==')
+                background-size cover
+
+    &-art
+        position absolute
+        top 49px
+        bottom 0
+        left 105px
+        right 0
+        opacity .5
+        transition filter .1s
+        
+        &--question
+            opacity .25
+            
+        .is-blurred &
+            filter blur(7px)
+            transition filter .5s
+        
+        &__line
+            position absolute
+            left 0
+            right 0
+            height 52px
+        
+            &[data-color="green"]
+                background-color #48FF91
+            
+            &[data-color="red"]
+                background-color #FF3333
+                
+            &[data-color="blue"]
+                background-color #6185C2
+            
+            &[data-color="purple"]
+                background-color #7B009A
+            
+            for n in (1..13)
+                &[data-x=\"{n}\"]
+                    left (53px * n)
+                    
+            for n in (1..10)
+                &[data-y=\"{n}\"]
+                    top (50px * n)
+                
+            for n in (1..17)
+                &[data-size=\"{n}\"]
+                    width (53px * n)
+            
+            &[data-odd="true"]
+                background-color transparent
+        
+        &__line-ceil
+            position absolute
+            top 0
+            left 0
+            width 53px
+            height 52px
+
+            [data-color="green"] &
+                background-color #48FF91
+            
+            [data-color="red"] &
+                background-color #FF3333
+                
+            [data-color="blue"] &
+                background-color #6185C2
+            
+            [data-color="purple"] &
+                background-color #7B009A
+            
+            for n in (1..13)
+                &[data-x=\"{n}\"]
+                    left (53px * n)
+    
+    &-dots
+        position absolute
+        top 21px
+        left 26px
+        display flex
+        align-items center
+        
+        @media $mq.iphone6
+            left 52px
+        
+        @media $mq.not_mobile
+            left 104px
+        
+        &__title
+            margin-right 5px
+            color #727272
+            font-size 14px
+            font-weight 700
+            text-transform uppercase
+            
+            @media $mq.iphone6
+                margin-right 7px
+            
+        &__list
+            display flex
+            align-items center
+            
+        &__item
+            width 8px
+            height 8px
+            margin-right 3px
+            border 2px solid  #727272
+            border-radius 100%
+            
+            &.is-filled
+                background-color #727272
+                
+            @media $mq.iphone6
+                width 10px
+                height 10px
+                margin-right 5px
+
+    &-back
+        position absolute
+        top 0
+        bottom 0
+        left 0
+        right 0
+
+    &-question
+        position absolute
+        top 50px
+        bottom 0
+        left 26px
+        z-index 1
+        width calc(100% - 36px)
+        
+        @media $mq.iphone6
+            left 52px
+            width calc(100% - 62px)
+            max-width 480px
+        
+        @media $mq.not_mobile
+            left 104px
+            width auto
+        
+        &__text
+            display flex
+            align-items flex-end
+            color #fff
+            line-height 1.75em
+
+            @media $mq.not_mobile
+                height 138px
+                transition height .1s
+                
+                &--a
+                    height 112px
+                    transition height .5s
+            
+        &__audio
+            margin-top 20px
+        
+        &__options
+            display flex
+            flex-wrap wrap
+            align-items center
+            margin -25px 0 0 -25px
+            padding-top 43px
+            
+        &__options-item
+            padding 25px 0 0 25px
+        
+        &__option
+            min-width 227px
+            height 52px
+            color #fff
+            font-weight 700
+            text-align center
+            border 3px solid  #fff
+            background-color transparent
+            
+        &__user-answer
+            margin-top 66px
+            color #FF3333
+            font-size 24px
+            font-weight 900
+            
+            &--correct
+                color #1FFF6B
+
+        &__answer
+            margin-top 9px
+            color #fff
+            font-size 18px
+            line-height 1.75em
+            
+            @media $mq.not_mobile
+                font-size 20px
+            
+        &__next-btn
+            position relative
+            display inline-block
+            margin-top 30px
+            padding-right 24px
+            color #fff
+            font-size 24px
+            font-weight 700
+            cursor pointer
+            
+            &::after
+                content ''
+                position absolute
+                top 2px
+                bottom 0
+                right 0
+                margin 0 auto
+                width 14px
+                height 24px
+                background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAxCAYAAADJP8l8AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACBSURBVHgB7djBCYAwDIXh4CQdoftfHKUjOEJtISCItUWTgvI/eKdCPnIrEdHknGNp0gbxjGJbPuKHXmC+qA5uxRxdOu+hdDVF67DOlvabgoKCgoKCgv4cXeSLGdyufkWjvA0YGBgYGBjYM3AeNgDaYgq2Tl/22A3qh53QpPXFZmYHBysAWiS0l0cAAAAASUVORK5CYII=')
+                background-size cover
+            
+            @media $mq.not_mobile
+                position absolute
+                bottom 115px
+                margin-top 0
+            
+    &-audio
+        display flex
+        align-items center
+        
+        &__btn
+            position relative
+            width 35px
+            height 35px
+            margin-right 18px
+            border-radius 100%
+            background-color #fff
+            cursor pointer
+            
+            &::after
+                content ''
+                position absolute
+                top 2px
+                bottom 0
+                left 2px
+                right 0
+                margin auto
+                width 12px
+                height 15px
+                background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAdCAYAAACwuqxLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADSSURBVHgBtZVhDcIwEIXfUICESUDCJCBhDsDBwAEOKqUWcFAJ4ODohTZpCFvX3t2XfFv2517vbkkB4BJ9RSkaojOUycVLXXSEErQid3OFAlSRg0YIoJ0u6IQa5G7OaIQ6dGgYG3XK3cyWAVlf64aUXKwD8thOlgF/fwIyMnA3Q/qw4m0dgANsufPDav5TTtEu/ogeyza0Cvvy1JoBfCNuXkzSU4+o0Hvq3feCeIlaAQErS5QG8DhuECBeYk9A9ddrwf8Ud2hc4hZDek/4juKZVOMD/hZW4hfNJ7wAAAAASUVORK5CYII=')
+                background-size cover
+            
+            &--pause::after
+                top 0
+                left 0
+                width 11px
+                height 14px
+                background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAdCAYAAACuc5z4AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB5SURBVHgB7ZbRCYAwDERbJ+gIbqAjOIqb1hF0Ah2hG9RrCCjSRCgIfuTgfZTeve94d2UCIxhAAhtYwOH0SDvKDHKFHQRFqu0oUShkHksRd537KCY2sYlNbGITm/jv4qR0Wv8o5UQq18vz8IitO38rBS72/F6Zt1R3J/ZzNA3uo2PVAAAAAElFTkSuQmCC')
+        
+        &__path
+            position relative
+            width 58%
+            max-width 320px
+            height 6px
+            border-radius 10px
+            background-color #696969
+        
+        &__path-progress
+            position absolute
+            top 0
+            left 0
+            width 0
+            height 6px
+            border-radius 10px
+            background-color #fff
+            // transition width .5s linear
+            
+        &__time
+            margin-left 11px
+            color #696969
+            font-size 12px
+    
+    &-result
+        
+        &__head
+            min-height 375px
+            padding 52px 20px 0 26px
+            background-color #333333
+            
+            @media $mq.iphone6
+                padding-left 52px
+                
+            @media $mq.not_mobile
+                padding-left 248px
+
+        &__img
+            position absolute
+            
+            &--1
+                top 25px
+                right 88px
+            
+            &--2
+                top 54px
+                right 248px
+                
+            &--3
+                top: 85px;
+                right: 136px;
+                
+            &--4
+                top: 54px;
+                right: 88px;
+        
+        &__result
+            position relative
+            color #999999
+            
+        &__title
+            position relative
+            margin-top 25px
+            font-size 36px
+            font-weight 700
+            color #fff
+            
+        &__subtitle
+            position relative
+            margin-top 11px
+            color #fff
+            
+        &__share
+            position relative
+            margin-top 50px
+            
+        &__restart-btn
+            position relative
+            display inline-block
+            margin-top 42px
+            padding-right 24px
+            color #999
+            cursor pointer
+            
+            & svg
+                position absolute
+                top 2px
+                bottom 0
+                right 0
+        
+        &__bottom
+            display flex
+            justify-content center
+            align-items flex-start
+            min-height 225px
+            padding-top 52px
+            background-color #000
+    
+    &-subscribe
+        display flex
+        flex-direction column
+        align-items center
+        
+        &__title
+            position relative
+            margin-bottom 19px
+            color #fff
+            line-height 1.5em
+            text-align center
+        
+        & svg
+            position absolute
+            top 12px
+            left -50px
+            color #6185C2
+        
+        &__btn
+            display block
+            min-width 180px
+            height 45px
+            overflow hidden
+            color #fff
+            font-size 14px
+            font-weight 700
+            text-align center
+            border-radius 100px
+            background-color transparent
+            
+            &--vk
+                background-color #5181B8
+            
+            &--tj
+                background-color #E8A427
+
+.likely
+
+    &__widget
+        min-width 60px
+        height 50px
+        color #999
+        border 2px solid  #999
+        background-color #333
+
+        &:not(:last-child)
+            margin-right 10px
+        
+        &:hover
+            color #333
+            background-color #999
+
+        &--facebook
+            padding: 0 15px 0 10px
+
+    &__icon
+        background-color transparent
+
+        svg
+            width: 24px
+            height: @width
+
+        &--vkontakte
             svg
-                display: block
+                width: 28px
+                height: @width
+
+        &--facebook
+            margin-right: 6px

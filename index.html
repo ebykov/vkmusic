@@ -18,8 +18,31 @@
 
 <body>
 
-    <!-- Если спецпроект интегрирован в статью, используется такая конструкция -->
-    <div id="specialContainer"></div>
+    <div class="VKMusic-wrapper">
+        <div class="VKMusic-wrapper__grid"></div>
+        <div class="l-wide_container VKMusic-container">
+            <div id="vk-music-container" class="VKMusic">
+                <!-- <div class="VKMusic-result">
+                    <div class="VKMusic-result__head">
+                        <div class="VKMusic-result__result">1 из 10 правильных ответов</div>
+                        <div class="VKMusic-result__title">Пропускаю, пропускаю!</div>
+                        <div class="VKMusic-result__subtitle">На шоу Валдиса Пельша вам лучше не ходить</div>
+                        <div class="VKMusic-result__share"></div>
+                        <div class="VKMusic-result__restart-btn">Пройти еще раз</div>
+                    </div>
+                    <div class="VKMusic-result__bottom">
+                        <div class="VKMusic-subscribe">
+                            <div class="VKMusic-subscribe__title">
+                                <span>Подписка на Boom и<br>музыку «ВКонтакте»</span>
+                                <div class="VKMusic-subscribe__title-icon"></div>
+                            </div>
+                            <button class="VKMusic-subscribe__btn VKMusic-subscribe__btn--vk">Получить</button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
 
     <script>
         (function(d, ver) {
@@ -27,22 +50,27 @@
             s.src = './dist/all.js?' + ver;
             s.async = true;
 
-            var container = d.getElementById('specialContainer');
-            var newContainer = container.cloneNode(true);
+            var container = d.getElementById('vk-music-container');
 
-            container.parentNode.replaceChild(newContainer, container);
+            // var container = d.getElementById('specialContainer');
+            // var newContainer = container.cloneNode(true);
 
-            s.onload = function() {
-                var special = new Special({
-                    css: './dist/all.css?' + ver,
-                    container: newContainer,
-                    share: {
-                        url: 'https://vc.ru/special/url',
-                        twitter: 'Optional title for Twitter',
-                        title: 'Optional title for VK'
-                    }
-                });
-            };
+            // container.parentNode.replaceChild(newContainer, container);
+
+            if (container) {
+                s.onload = function() {
+                    var special = new VKMusic.Special({
+                        css: './dist/all.css?' + ver,
+                        container: container,
+                        share: {
+                            url: 'https://vc.ru/special/url',
+                            twitter: 'Optional title for Twitter',
+                            title: 'Optional title for VK'
+                        }
+                    });
+                };
+            }
+
             d.body.appendChild(s);
         })(document, 0);
     </script>

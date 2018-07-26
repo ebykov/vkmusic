@@ -31,11 +31,13 @@ if (isProduction) {
             server: {
                 baseDir: './'
             },
-            https: true,
+            // https: true,
             ghostMode: false,
             notify: false,
             scrollProportionally: false,
-            cors: true
+            cors: true,
+            browser: 'google chrome',
+            open: false
         })
     ]);
 }

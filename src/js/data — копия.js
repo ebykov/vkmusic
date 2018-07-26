@@ -18,9 +18,8 @@ export default {
         size: 9,
         color: "blue"
     }],
-    questions: [{
-        title: "сэмплы",
-        list: [{
+    questions: {
+        samples: [{
             text: "Какой трек начинается с этого семпла?",
             track: "https://freemusicarchive.org/file/music/WFMU/Black_Ant/Joanna_Preciado/Black_Ant_-_08_-_realest_year_9.mp3",
             art: [{
@@ -154,11 +153,8 @@ export default {
                 text: "Валерий Меладзе",
                 msg: "Нет, это песня «Вот мы какие», которую Киркоров выпустил в 1998 году. Но теперь-то вы знаете другой его трек."
             }]
-        }]
-    },
-    {
-        title: "треки",
-        list: [{
+        }],
+        tracks: [{
             text: "Кто исполнил оригинал этой песни? Подсказка: не Фред Дёрст из Limp Bizkit",
             track: "https://freemusicarchive.org/file/music/dublab/Fulgeance/INTO_INFINITY_an_exploration_of_on_and_on_and_on_and_on/Fulgeance_-_Into_Infinity_ear_loop.mp3",
             art: [{
@@ -401,26 +397,6 @@ export default {
                 msg: "Нет, это «Розовое вино» — самый популярный трек во «ВКонтакте» за 2017 год. Его прослушали более 200 млн раз."
             }]
         }]
-    }],
-    results: [{
-        range: [0, 1],
-        title: "Пропускаю, пропускаю!",
-        subtitle: "На шоу Валдиса Пельша вам лучше не ходить",
-        img: "dist/img/results/1.png"
-    }, {
-        range: [2, 4],
-        title: "Ага, ну",
-        subtitle: "Вы больше по классике",
-        img: "dist/img/results/2.png"
-    }, {
-        range: [5, 9],
-        title: "Реп — мой хлеб",
-        subtitle: "Вы знаете всех Lil’ов",
-        img: "dist/img/results/3.png"
-    }, {
-        range: [10, 10],
-        title: "Меломан",
-        subtitle: "Знаете всю музыку — от йодля до трип-хопа",
-        img: "dist/img/results/4.png"
-    }]
+    },
+
 };
