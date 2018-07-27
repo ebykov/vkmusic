@@ -403,22 +403,22 @@ export default {
         }]
     }],
     results: [{
-        range: [0, 1],
+        range: [0, 2],
         title: "Пропускаю, пропускаю!",
         subtitle: "На шоу Валдиса Пельша вам лучше не ходить",
         img: "img/results/1.png"
     }, {
-        range: [2, 4],
+        range: [3, 5],
         title: "Ага, ну",
         subtitle: "Вы больше по классике",
         img: "img/results/2.png"
     }, {
-        range: [5, 9],
+        range: [6, 8],
         title: "Реп — мой хлеб",
         subtitle: "Вы знаете всех Lil’ов",
         img: "img/results/3.png"
     }, {
-        range: [10, 10],
+        range: [9, 10],
         title: "Меломан",
         subtitle: "Знаете всю музыку — от йодля до трип-хопа",
         img: "img/results/4.png"
