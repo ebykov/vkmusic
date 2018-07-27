@@ -211,6 +211,7 @@ class Special extends BaseSpecial {
     restart() {
         this.setInitialParams();
 
+        this.container.classList.remove(CSS.main + '--result');
         this.container.removeChild(EL.result);
 
         this.container.appendChild(EL.logo);
