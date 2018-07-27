@@ -1,0 +1,30 @@
+.animated
+    animation-duration 400ms
+    animation-fill-mode both
+    
+.fadeIn
+    animation-name fadeIn
+
+@keyframes fadeIn {
+    0% {
+        opacity 0
+    }
+    to {
+        // opacity 1
+        opacity .25
+    }
+}
+
+.fadeInUp
+    animation-name fadeInUp
+
+@keyframes fadeInUp {
+    from {
+        opacity 0
+        transform translate3d(0, 100%, 0)
+    }
+    to {
+        opacity 1
+        transform none
+    }
+}

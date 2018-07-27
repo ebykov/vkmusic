@@ -7,6 +7,7 @@ import * as Share from './lib/share';
 import * as Analytics from './lib/analytics';
 import { makeElement, removeChildren } from './lib/dom';
 import Player from './player';
+import animate from './lib/animate';
 
 const CSS = {
     main: 'VKMusic',
@@ -68,7 +69,7 @@ class Special extends BaseSpecial {
             }
         });
         EL.qResultBtn = makeElement('div', CSS.main + '-question__next-btn', {
-            textContent: 'Результат',
+            innerHTML: '<span>Результат</span>' + Svg.arrowNext,
             data: {
                 click: 'showResult'
             }
@@ -255,6 +256,11 @@ class Special extends BaseSpecial {
         
         this.makeOptions(question.options);
         this.player.setTrack(question.track);
+
+        animate(EL.art, 'fadeIn', '600ms')
+        animate(EL.qTextDiv, 'fadeInUp', '600ms', '100ms');
+        animate(EL.qAudio, 'fadeInUp', '600ms', '300ms');
+        animate(EL.qOptions, 'fadeInUp', '600ms', '400ms');
     }
 
     makeOptions(options) {
@@ -294,18 +300,24 @@ class Special extends BaseSpecial {
             EL.qUserAnswer.classList.remove(CSS.main + '-question__user-answer--correct');
         }
 
+        animate(EL.qUserAnswer, 'fadeInUp', '600ms');
+        animate(EL.qAnswer, 'fadeInUp', '800ms', '600ms');
+
 
         if (this.activeIndex < this.questions.list.length - 1) {
             this.activeIndex++;
             EL.question.appendChild(EL.qNextBtn);
+            animate(EL.qNextBtn, 'fadeInUp', '600ms', '1200ms');
         } else if (this.activeGroupIndex < Data.questions.length - 1) {
             this.activeGroupIndex++;
             this.activeIndex = 0;
             this.questions = Data.questions[this.activeGroupIndex];
             this.createDots();
             EL.question.appendChild(EL.qNextBtn);
+            animate(EL.qNextBtn, 'fadeInUp', '600ms', '1200ms');
         } else {
             EL.question.appendChild(EL.qResultBtn);
+            animate(EL.qResultBtn, 'fadeInUp', '600ms', '1200ms');
         }
     }
 
