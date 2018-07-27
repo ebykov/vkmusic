@@ -321,6 +321,8 @@ class Special extends BaseSpecial {
                 EL.rTitle.textContent = item.title;
                 EL.rSubtitle.textContent = item.subtitle;
                 EL.rImg.src = item.img;
+                EL.rImg.className = '';
+                EL.rImg.classList.add(CSS.main + '-result__img');
                 EL.rImg.classList.add(CSS.main + '-result__img--' + (index + 1));
 
                 return true;
