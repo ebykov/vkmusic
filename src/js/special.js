@@ -14,7 +14,6 @@ const CSS = {
 
 const EL = {};
 
-
 class Special extends BaseSpecial {
     constructor(params = {}) {
         super();
@@ -63,7 +62,7 @@ class Special extends BaseSpecial {
         EL.qUserAnswer = makeElement('div', CSS.main + '-question__user-answer');
         EL.qAnswer = makeElement('div', CSS.main + '-question__answer');
         EL.qNextBtn = makeElement('div', CSS.main + '-question__next-btn', {
-            textContent: 'Продолжить',
+            innerHTML: '<span>Продолжить</span>' + Svg.arrowNext,
             data: {
                 click: 'continue'
             }
@@ -100,7 +99,7 @@ class Special extends BaseSpecial {
         });
         EL.startBtn = makeElement('button', CSS.main + '-enter__start-btn', {
             type: 'button',
-            textContent: 'Начать',
+            innerHTML: '<span>Начать</span>' + Svg.arrowStart,
             data: {
                 click: 'start'
             }
@@ -191,6 +190,11 @@ class Special extends BaseSpecial {
 
     fillDot() {
         EL.dotsList.children[this.activeIndex].classList.add('is-filled');
+        EL.dotsList.children[this.activeIndex].classList.add('is-active');
+
+        if (EL.dotsList.children[this.activeIndex - 1]) {
+            EL.dotsList.children[this.activeIndex - 1].classList.remove('is-active');
+        }
     }
 
     setSliderPosition(progress) {
@@ -242,7 +246,6 @@ class Special extends BaseSpecial {
     makeNextQuestion() {
         let question = this.questions.list[this.activeIndex];
 
-        this.player.setCurrentTime(0);
         this.setSliderPosition(0);
         this.drawArt(question.art);
         this.fillDot();
@@ -348,7 +351,7 @@ class Special extends BaseSpecial {
 
         this.player = new Player(EL.qAudio, {
             on: {
-                progress: this.setSliderPosition
+                progress: this.setSliderPosition,
             }
         });
 

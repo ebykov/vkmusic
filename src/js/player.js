@@ -89,16 +89,6 @@ export default class Player {
         this.audio = new Audio();
     }
 
-    play() {
-        this.audio.play();
-        EL.btn.classList.add('VKMusic-audio__btn--pause');
-    }
-
-    pause() {
-        this.audio.pause();
-        EL.btn.classList.remove('VKMusic-audio__btn--pause');
-    }
-
     setPathProgress(num) {
         EL.pathProgress.style.width = num + '%';
     }
@@ -108,35 +98,52 @@ export default class Player {
     }
 
     setTrack(link) {
-        this.pause();
+        EL.btn.classList.remove('VKMusic-audio__btn--pause');
+
         this.setPathProgress(0);
+        this.setCurrentTime(0);
         this.audio.src = link;
-        // this.audio.src = 'http://www.lukeduncan.me/oslo.mp3';
-        // this.audio.src = 'http://labs.qnimate.com/files/mp3.mp3';
-        // this.audio.type = 'audio/mp3';
         this.audio.load();
     }
 
     onClick() {
-        this.audio.paused ? this.play() : this.pause();
+        this.audio.paused ? this.audio.play() : this.audio.pause();
     }
 
-    onProgress(e) {
-        let num = Math.round(((100 / e.target.duration) * e.target.currentTime) * 10000) / 10000;
-        this.setPathProgress(num);
-        this.setCurrentTime(e.target.currentTime);
+    onPlay() {
+        EL.btn.classList.add('VKMusic-audio__btn--pause');
+        this.startProgress();
+    }
 
-        this.emit('progress', num);
+    onPause() {
+        EL.btn.classList.remove('VKMusic-audio__btn--pause');
     }
 
     onEnded() {
         EL.btn.classList.remove('VKMusic-audio__btn--pause');
     }
 
+    startProgress() {
+        let animationHandler = () => {
+            if (this.audio.paused) return;
+
+            let num = Math.round(((100 / this.audio.duration) * this.audio.currentTime) * 10000) / 10000;
+            this.setPathProgress(num);
+            this.setCurrentTime(this.audio.currentTime);
+
+            this.emit('progress', num);
+
+            requestAnimationFrame(animationHandler);
+        }
+
+        requestAnimationFrame(animationHandler);
+    }
+
     initEvents() {
         EL.btn.addEventListener('click', this.onClick.bind(this));
 
-        this.audio.addEventListener('timeupdate', this.onProgress.bind(this));
+        this.audio.addEventListener('playing', this.onPlay.bind(this));
+        this.audio.addEventListener('pause', this.onPause.bind(this));
         this.audio.addEventListener('ended', this.onEnded.bind(this));
     }
 
