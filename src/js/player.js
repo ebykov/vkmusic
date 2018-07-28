@@ -106,6 +106,26 @@ export default class Player {
         this.audio.load();
     }
 
+    startProgress() {
+        let animationHandler = () => {
+            if (this.audio.paused) return;
+
+            let num = Math.round(((100 / this.audio.duration) * this.audio.currentTime) * 10000) / 10000;
+            this.setPathProgress(num);
+            this.setCurrentTime(this.audio.currentTime);
+
+            this.emit('progress', num);
+
+            requestAnimationFrame(animationHandler);
+        }
+
+        requestAnimationFrame(animationHandler);
+    }
+
+    pause() {
+        this.audio.pause();
+    }
+
     onClick() {
         this.audio.paused ? this.audio.play() : this.audio.pause();
     }
@@ -121,22 +141,6 @@ export default class Player {
 
     onEnded() {
         EL.btn.classList.remove('VKMusic-audio__btn--pause');
-    }
-
-    startProgress() {
-        let animationHandler = () => {
-            if (this.audio.paused) return;
-
-            let num = Math.round(((100 / this.audio.duration) * this.audio.currentTime) * 10000) / 10000;
-            this.setPathProgress(num);
-            this.setCurrentTime(this.audio.currentTime);
-
-            this.emit('progress', num);
-
-            requestAnimationFrame(animationHandler);
-        }
-
-        requestAnimationFrame(animationHandler);
     }
 
     initEvents() {

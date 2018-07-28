@@ -65,7 +65,7 @@ export default {
             }]
         }, {
             text: "Этот семпл в своей песне использовал известный инди-исполнитель.",
-            track: "https://freemusicarchive.org/file/music/WFMU/John_Wesley_Coleman/Live_at_WFMUs_Cherry_Blossom_Clinic_1092010/John_Wesley_Coleman_-_07_-_Tequila_10_Seconds.mp3",
+            track: "audio/2.mp3",
             art: [{
                 x: 0,
                 y: 0,
@@ -88,7 +88,7 @@ export default {
             }]
         }, {
             text: "Этого исполнителя вы точно знаете, а вот трек, в котором он использовал этот семпл, можете и не вспомнить.",
-            track: "https://freemusicarchive.org/file/music/WFMU/Eric_Carlson/Free_Matter_for_the_Blind_Volume_6_Mysterious_Worldz_Dark_Side/Eric_Carlson_-_Tunnel_Birds.mp3",
+            track: "audio/3.mp3",
             art: [{
                 x: 1,
                 y: 3,
@@ -117,7 +117,7 @@ export default {
             }]
         }, {
             text: "Угадаете, какой поп-певец использовал эти турецкие мотивы в своей песне?",
-            track: "https://freemusicarchive.org/file/music/True_Chip_Till_Death/Norrin_Radd/Anomaly/Norrin_Radd_-_09_-_Quantum_Uncertainty.mp3",
+            track: "audio/4.mp3",
             art: [{
                 x: 0,
                 y: 2,
@@ -160,7 +160,7 @@ export default {
         title: "треки",
         list: [{
             text: "Кто исполнил оригинал этой песни? Подсказка: не Фред Дёрст из Limp Bizkit",
-            track: "https://freemusicarchive.org/file/music/dublab/Fulgeance/INTO_INFINITY_an_exploration_of_on_and_on_and_on_and_on/Fulgeance_-_Into_Infinity_ear_loop.mp3",
+            track: "audio/5.mp3",
             art: [{
                 x: 0,
                 y: 0,
@@ -188,7 +188,7 @@ export default {
             }]
         }, {
             text: "Die Antwoord или Little Big?",
-            track: "https://freemusicarchive.org/file/music/Faux_Fetus_Collective/The_Riffingtons/Three_Inches_of_PAIN/The_Riffingtons_-_01_-_The_Mystery_Behind_the_Meat_Cloak.mp3",
+            track: "audio/6.mp3",
             art: [{
                 x: 0,
                 y: 1,
@@ -220,7 +220,7 @@ export default {
             }]
         }, {
             text: "Ностальгический трек, вспомните исполнителя?",
-            track: "https://freemusicarchive.org/file/music/Third_Coast_International_Audio_Festival/The_Books/ShortDocs_2010_sonic_doodads/The_Books_-_clarinet_clock_loop.mp3",
+            track: "audio/7.mp3",
             art: [{
                 x: 7,
                 y: 0,
@@ -253,7 +253,7 @@ export default {
             }]
         }, {
             text: "Если не разбираетесь в трэпе, то будет очень сложно.",
-            track: "https://freemusicarchive.org/file/music/WFMU/Ergo_Phizmiz/Outtakes_from_The_Snow_Flea/Ergo_Phizmiz_-_03_-_Wayne_The_Seagull.mp3",
+            track: "audio/8.mp3",
             art: [{
                 x: 8,
                 y: 3,
@@ -291,7 +291,7 @@ export default {
             }]
         }, {
             text: "Это Armin Van Buren, но какой микс?",
-            track: "https://freemusicarchive.org/file/music/no_curator/Cindy_Sizer/Cindy_Sizer/Cindy_Sizer_-_09_-_Mario_Paint_Interlude.mp3",
+            track: "audio/9.mp3",
             art: [{
                 x: 0,
                 y: 0,
@@ -359,7 +359,7 @@ export default {
             }]
         }, {
             text: "Этот трек играет в обратном направлении. Иначе вы бы сразу его отгадали.",
-            track: "https://freemusicarchive.org/file/music/WFMU/junior85/Remixes_ish/junior85_-_07_-_Function.mp3",
+            track: "audio/10.mp3",
             art: [{
                 x: 4,
                 y: 2,

@@ -131,7 +131,10 @@ class Special extends BaseSpecial {
 
         EL.rBottom = makeElement('div', CSS.main + '-result__bottom');
         EL.subscribeVK = makeElement('div', CSS.main + '-subscribe', {
-            innerHTML: '<div class="VKMusic-subscribe"><div class="VKMusic-subscribe__title"><span>Подписка на Boom и<br>музыку «ВКонтакте»</span>' + Svg.note + '</div></div><button class="VKMusic-subscribe__btn VKMusic-subscribe__btn--vk">Получить</button>'
+            innerHTML: '<div class="VKMusic-subscribe"><div class="VKMusic-subscribe__title"><span>Подписка на Boom и<br>музыку «ВКонтакте»</span>' + '<span class="VKMusic-subscribe__icon VKMusic-subscribe__icon--vk">' + Svg.note + '</span>' + '</div></div><button class="VKMusic-subscribe__btn VKMusic-subscribe__btn--vk">Получить</button>'
+        });
+        EL.subscribeTJ = makeElement('div', CSS.main + '-subscribe', {
+            innerHTML: '<div class="VKMusic-subscribe"><div class="VKMusic-subscribe__title"><span>Подписка на<br>TJournal</span>' + '<span class="VKMusic-subscribe__icon VKMusic-subscribe__icon--tj">' + Svg.users + '</span>' + '</div></div><button class="VKMusic-subscribe__btn VKMusic-subscribe__btn--tj">Получить</button>'
         });
 
         EL.rHead.appendChild(EL.rImg);
@@ -141,7 +144,8 @@ class Special extends BaseSpecial {
         EL.rHead.appendChild(EL.rShare);
         EL.rHead.appendChild(EL.rRestartBtn);
 
-        EL.rBottom.appendChild(EL.subscribeVK);
+        // EL.rBottom.appendChild(EL.subscribeVK);
+        // EL.rBottom.appendChild(EL.subscribeTJ);
 
         EL.result.appendChild(EL.rHead);
         EL.result.appendChild(EL.rBottom);
@@ -257,7 +261,7 @@ class Special extends BaseSpecial {
         this.makeOptions(question.options);
         this.player.setTrack(question.track);
 
-        animate(EL.art, 'fadeIn', '600ms')
+        animate(EL.art, 'fadeInArt', '600ms');
         animate(EL.qTextDiv, 'fadeInUp', '600ms', '100ms');
         animate(EL.qAudio, 'fadeInUp', '600ms', '300ms');
         animate(EL.qOptions, 'fadeInUp', '600ms', '400ms');
@@ -328,6 +332,7 @@ class Special extends BaseSpecial {
 
         document.body.classList.remove('is-blurred');
         removeChildren(this.container);
+        this.player.pause();
         this.container.classList.add(CSS.main + '--result');
         this.container.appendChild(EL.result);
         EL.rResult.textContent = this.correctAnswers + ' из ' + count + ' правильных ответов';;
@@ -344,6 +349,9 @@ class Special extends BaseSpecial {
                 return true;
             }
         });
+
+        removeChildren(EL.rBottom);
+        this.correctAnswers >= 8 ? EL.rBottom.appendChild(EL.subscribeVK) : EL.rBottom.appendChild(EL.subscribeTJ);
 
         Share.init();
     }

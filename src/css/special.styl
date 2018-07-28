@@ -22,7 +22,7 @@ $colors = {}
     min-height 604px
     padding-bottom 20px
     font-size 16px
-    border 2px solid #6185C2
+    border 3px solid #6185C2
     border-radius 10px
     overflow hidden
     
@@ -35,7 +35,10 @@ $colors = {}
         font-size 18px
 
     &-wrapper
+        position relative
+        min-height 100vh
         padding 123px 0 75px
+        overflow hidden
 
         &__grid
             position absolute
@@ -49,8 +52,11 @@ $colors = {}
                              linear-gradient(90deg, #191919 2px, transparent 2px),
                              linear-gradient(90deg, #191919 1px, transparent 1px)
             background-position 0 34px, 25px 0, 78px 0
-
+            
+            transform translate3d(0,0,0)
             transition filter .1s
+            
+            will-change filter
             
             .is-blurred &
                 filter blur(3px)
@@ -90,6 +96,8 @@ $colors = {}
         left 0
         transition filter .1s
         
+        will-change filter
+        
         .is-blurred &
             filter blur(2px)
             transition filter .5s
@@ -111,6 +119,8 @@ $colors = {}
         left 10px
         right 10px
         transition filter .1s
+        
+        will-change filter
         
         .is-blurred &
             filter blur(2px)
@@ -223,6 +233,8 @@ $colors = {}
         right 0
         opacity .5
         transition filter .1s
+        
+        will-change filter
         
         &--question
             opacity .25
@@ -368,6 +380,8 @@ $colors = {}
                 height 138px
                 transition height .1s
                 
+                will-change height
+                
                 &--a
                     height 112px
                     transition height .5s
@@ -501,28 +515,43 @@ $colors = {}
             
             @media $mq.iphone6
                 padding-left 52px
-                
+
             @media $mq.not_mobile
+                padding-left 124px
+
+            @media $mq.desktop
                 padding-left 248px
 
         &__img
             position absolute
+            left 60%
+            
+            @media $mq.desktop
+                left auto
             
             &--1
                 top 25px
-                right 88px
+                
+                @media $mq.desktop
+                    right 88px
             
             &--2
                 top 54px
-                right 248px
+                
+                @media $mq.desktop
+                    right 248px
                 
             &--3
                 top: 85px;
-                right: 136px;
+
+                @media $mq.desktop
+                    right: 136px;
                 
             &--4
                 top: 54px;
-                right: 88px;
+
+                @media $mq.desktop
+                    right: 88px;
         
         &__result
             position relative
@@ -531,18 +560,26 @@ $colors = {}
         &__title
             position relative
             margin-top 25px
-            font-size 36px
+            font-size 32px
             font-weight 700
             color #fff
             
+            @media $mq.not_mobile
+                font-size 36px
+            
         &__subtitle
             position relative
+            min-height 32px
             margin-top 11px
             color #fff
             
+            @media $mq.not_mobile
+                min-height 36px
+            
         &__share
             position relative
-            margin-top 50px
+            margin-top 32px
+            // margin-top 50px
             
         &__restart-btn
             position relative
@@ -570,19 +607,25 @@ $colors = {}
         display flex
         flex-direction column
         align-items center
-        
+
         &__title
             position relative
             margin-bottom 19px
             color #fff
+            font-weight 700
             line-height 1.5em
             text-align center
-        
-        & svg
+            
+        &__icon
             position absolute
             top 12px
             left -50px
-            color #6185C2
+            
+            &--vk
+                color #5181B8
+                
+            &--tj
+                color #E8A427
         
         &__btn
             display block
@@ -594,7 +637,7 @@ $colors = {}
             font-weight 700
             text-align center
             border-radius 100px
-            background-color transparent
+            background-color currentColor
             
             &--vk
                 background-color #5181B8
@@ -619,7 +662,15 @@ $colors = {}
             background-color #999
 
         &--facebook
-            padding: 0 15px 0 10px
+            
+            @media $mq.not_mobile
+                padding: 0 15px 0 10px
+    
+    &__button--facebook
+        display none
+        
+        @media $mq.not_mobile
+            display block
 
     &__icon
         background-color transparent
@@ -634,4 +685,6 @@ $colors = {}
                 height: @width
 
         &--facebook
-            margin-right: 6px
+
+            @media $mq.not_mobile
+                margin-right 6px
