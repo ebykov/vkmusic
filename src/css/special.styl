@@ -19,8 +19,8 @@ $colors = {}
 
 .VKMusic
     position relative
-    min-height 540px
-    padding-bottom 20px
+    min-height 530px
+    padding-bottom 10px
     font-size 16px
     border 3px solid #6185C2
     border-radius 10px
@@ -231,7 +231,7 @@ $colors = {}
             position relative
             height 52px
             padding 0 51px 0 46px
-            margin-top 20px
+            margin-top 12px
             font-weight 700
             border-radius 100px
             background-color #fff
@@ -247,6 +247,9 @@ $colors = {}
             &:hover
                 color #fff
                 background-color #404040
+                
+            @media $mq.iphone6
+                margin-top 20px
 
     &-art
         position absolute
@@ -419,11 +422,17 @@ $colors = {}
             display flex
             flex-wrap wrap
             align-items center
-            margin -25px 0 0 -25px
+            margin -15px 0 0 -15px
             padding-top 43px
             
+            @media $mq.iphone6
+                margin -25px 0 0 -25px
+            
         &__options-item
-            padding 25px 0 0 25px
+            padding 15px 0 0 15px
+            
+            @media $mq.iphone6
+                padding 25px 0 0 25px
         
         &__option
             min-width 227px
@@ -640,7 +649,7 @@ $colors = {}
             display flex
             justify-content center
             align-items flex-start
-            min-height 179px
+            min-height 169px
             padding-top 26px
             background-color #000
             
