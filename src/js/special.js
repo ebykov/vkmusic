@@ -251,6 +251,10 @@ class Special extends BaseSpecial {
     makeNextQuestion() {
         let question = this.questions.list[this.activeIndex];
 
+        if (this.activeGroupIndex > 0 && this.activeIndex === 0) {
+            this.createDots();
+        }
+
         this.setSliderPosition(0);
         this.drawArt(question.art);
         this.fillDot();
@@ -316,7 +320,6 @@ class Special extends BaseSpecial {
             this.activeGroupIndex++;
             this.activeIndex = 0;
             this.questions = Data.questions[this.activeGroupIndex];
-            this.createDots();
             EL.question.appendChild(EL.qNextBtn);
             animate(EL.qNextBtn, 'fadeInUp', '600ms', '1200ms');
         } else {

@@ -141,6 +141,9 @@ export default class Player {
 
     onEnded() {
         EL.btn.classList.remove('VKMusic-audio__btn--pause');
+
+        this.setPathProgress(100);
+        this.emit('progress', 100);
     }
 
     initEvents() {

@@ -22,7 +22,7 @@ export default {
         title: "сэмплы",
         list: [{
             text: "Какой трек начинается с этого семпла?",
-            track: "audio/1.mp3",
+            track: "https://leonardo.osnova.io/audio/3e4d6f90-4bae-1dc7-7a88-92bb5825daa2/1-sample.mp3",
             art: [{
                 x: 0,
                 y: 0,
@@ -65,7 +65,7 @@ export default {
             }]
         }, {
             text: "Этот семпл в своей песне использовал известный инди-исполнитель.",
-            track: "audio/2.mp3",
+            track: "https://leonardo.osnova.io/audio/7d9ba122-b52f-848e-f741-2e3c89f251cc/2-sample.mp3",
             art: [{
                 x: 0,
                 y: 0,
@@ -88,7 +88,7 @@ export default {
             }]
         }, {
             text: "Этого исполнителя вы точно знаете, а вот трек, в котором он использовал этот семпл, можете и не вспомнить.",
-            track: "audio/3.mp3",
+            track: "https://leonardo.osnova.io/audio/3dfed74d-6a24-f778-0f70-185457b9c9b2/3-sample.mp3",
             art: [{
                 x: 1,
                 y: 3,
@@ -117,7 +117,7 @@ export default {
             }]
         }, {
             text: "Угадаете, какой поп-певец использовал эти турецкие мотивы в своей песне?",
-            track: "audio/4.mp3",
+            track: "https://leonardo.osnova.io/audio/e52a1105-4d74-bdcc-d32e-4fccbe5f5b8a/4-sample.mp3",
             art: [{
                 x: 0,
                 y: 2,
@@ -160,7 +160,7 @@ export default {
         title: "треки",
         list: [{
             text: "Кто исполнил оригинал этой песни? Подсказка: не Фред Дёрст из Limp Bizkit",
-            track: "audio/5.mp3",
+            track: "https://leonardo.osnova.io/audio/40f45c40-5e68-b24d-6226-d59cd3b67e9a/1-track.mp3",
             art: [{
                 x: 0,
                 y: 0,
@@ -188,7 +188,7 @@ export default {
             }]
         }, {
             text: "Die Antwoord или Little Big?",
-            track: "audio/6.mp3",
+            track: "https://leonardo.osnova.io/audio/1f3233f0-c812-7d8b-cb5c-02cd473730de/2-track.mp3",
             art: [{
                 x: 0,
                 y: 1,
@@ -220,7 +220,7 @@ export default {
             }]
         }, {
             text: "Ностальгический трек, вспомните исполнителя?",
-            track: "audio/7.mp3",
+            track: "https://leonardo.osnova.io/audio/222bea1b-339b-8bae-aed4-68bf3799b484/3-track.mp3",
             art: [{
                 x: 7,
                 y: 0,
@@ -253,7 +253,7 @@ export default {
             }]
         }, {
             text: "Если не разбираетесь в трэпе, то будет очень сложно.",
-            track: "audio/8.mp3",
+            track: "https://leonardo.osnova.io/audio/f5f6c82a-332a-8950-ddb4-be63e45b722f/4-track.mp3",
             art: [{
                 x: 8,
                 y: 3,
@@ -291,7 +291,7 @@ export default {
             }]
         }, {
             text: "Это Armin Van Buren, но какой микс?",
-            track: "audio/9.mp3",
+            track: "https://leonardo.osnova.io/audio/9a8e4043-fc33-c3ad-e8a1-22aa19045500/5-track.mp3",
             art: [{
                 x: 0,
                 y: 0,
@@ -359,7 +359,7 @@ export default {
             }]
         }, {
             text: "Этот трек играет в обратном направлении. Иначе вы бы сразу его отгадали.",
-            track: "audio/10.mp3",
+            track: "https://leonardo.osnova.io/audio/1f7c4b5c-fe4c-6c87-3269-dfbc20f09f79/6-track.mp3",
             art: [{
                 x: 4,
                 y: 2,

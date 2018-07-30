@@ -19,7 +19,8 @@ $colors = {}
 
 .VKMusic
     position relative
-    min-height 604px
+    // min-height 604px
+    min-height 560px
     padding-bottom 20px
     font-size 16px
     border 3px solid #6185C2
@@ -29,6 +30,9 @@ $colors = {}
     &--result
         padding-bottom 0
         border-color #333333
+        
+    @media $mq.iphone6
+        min-height 600px
     
     @media $mq.not_mobile
         padding-bottom 0
@@ -54,13 +58,13 @@ $colors = {}
             background-position 0 34px, 25px 0, 78px 0
             
             transform translate3d(0,0,0)
-            transition filter .1s
+            transition filter .1s linear
             
             will-change filter
             
             .is-blurred &
                 filter blur(3px)
-                transition filter .5s
+                transition filter .3s linear
                 
             @media (min-width 1090px)
                 background-position 0 34px, calc(50% - 53px) 0, center 0
@@ -94,13 +98,14 @@ $colors = {}
         position absolute
         top 50px
         left 0
-        transition filter .1s
+        transition filter .1s linear
+        transform translate3d(0,0,0)
         
         will-change filter
         
         .is-blurred &
             filter blur(2px)
-            transition filter .5s
+            transition filter .3s linear
             
         @media $mq.iphone5
             display none
@@ -118,13 +123,14 @@ $colors = {}
         bottom 0
         left 10px
         right 10px
-        transition filter .1s
+        transition filter .1s linear
+        transform translate3d(0,0,0)
         
         will-change filter
         
         .is-blurred &
             filter blur(2px)
-            transition filter .5s
+            transition filter .3s linear
 
         @media $mq.not_mobile
             left 104px
@@ -181,28 +187,39 @@ $colors = {}
         
         &__title
             color #fff
-            font-size 32px
+            font-size 28px
             font-weight 700
             line-height 1.2em
+            
+            @media $mq.iphone6
+                font-size 32px
             
             @media $mq.not_mobile
                 font-size 36px
             
         &__subtitle
-            margin-top: 13px;
-            line-height: 1.5em;
+            margin-top 11px
+            line-height 1.3em
             color #919191
             
+            @media $mq.iphone6
+                margin-top 13px
+                line-height 1.5em
+            
         &__desc
-            margin-top 22px
+            margin-top 19px
             color #fff
-            line-height: 1.7em;
+            line-height: 1.5em;
 
             b
                 font-weight 700
                 
             p:not(:last-child)
                 margin-bottom .556em
+            
+            @media $mq.iphone6
+                margin-top 22px
+                line-height 1.7em
                 
         &__start-btn
             position relative
@@ -232,7 +249,8 @@ $colors = {}
         left 105px
         right 0
         opacity .5
-        transition filter .1s
+        transition filter .1s linear
+        transform translate3d(0,0,0)
         
         will-change filter
         
@@ -241,7 +259,7 @@ $colors = {}
             
         .is-blurred &
             filter blur(7px)
-            transition filter .5s
+            transition filter .3s linear
         
         &__line
             position absolute
@@ -378,13 +396,12 @@ $colors = {}
 
             @media $mq.not_mobile
                 height 138px
-                transition height .1s
-                
-                will-change height
-                
+                margin-top 0
+                transition margin-top .1s
+
                 &--a
-                    height 112px
-                    transition height .5s
+                    margin-top -26px
+                    transition margin-top .3s
             
         &__audio
             margin-top 20px
@@ -407,6 +424,11 @@ $colors = {}
             text-align center
             border 3px solid  #fff
             background-color transparent
+            transition color .2s, background-color .2s
+        
+            &:hover
+                color #000
+                background-color #fff
             
         &__user-answer
             margin-top 66px
@@ -462,13 +484,14 @@ $colors = {}
             border-radius 100%
             background-color #fff
             cursor pointer
+            transition opacity .2s
             
             &::after
                 content ''
                 position absolute
                 top 2px
                 bottom 0
-                left 2px
+                left 3px
                 right 0
                 margin auto
                 width 12px
@@ -482,6 +505,9 @@ $colors = {}
                 width 11px
                 height 14px
                 background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAdCAYAAACuc5z4AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB5SURBVHgB7ZbRCYAwDERbJ+gIbqAjOIqb1hF0Ah2hG9RrCCjSRCgIfuTgfZTeve94d2UCIxhAAhtYwOH0SDvKDHKFHQRFqu0oUShkHksRd537KCY2sYlNbGITm/jv4qR0Wv8o5UQq18vz8IitO38rBS72/F6Zt1R3J/ZzNA3uo2PVAAAAAElFTkSuQmCC')
+
+            &:hover
+                opacity .8
         
         &__path
             position relative
@@ -509,11 +535,13 @@ $colors = {}
     &-result
         
         &__head
-            min-height 375px
-            padding 52px 20px 0 26px
+            min-height 355px
+            padding 26px 20px 0 26px
             background-color #333333
             
             @media $mq.iphone6
+                min-height 375px
+                padding-top 52px
                 padding-left 52px
 
             @media $mq.not_mobile
@@ -588,20 +616,28 @@ $colors = {}
             padding-right 24px
             color #999
             cursor pointer
+            transition color .2s
             
             & svg
                 position absolute
                 top 2px
                 bottom 0
                 right 0
+            
+            &:hover
+                color darken(#999, 20)
         
         &__bottom
             display flex
             justify-content center
             align-items flex-start
-            min-height 225px
-            padding-top 52px
+            min-height 199px
+            padding-top 26px
             background-color #000
+            
+            @media $mq.iphone6
+                min-height 225px
+                padding-top 52px
     
     &-subscribe
         display flex
@@ -638,12 +674,19 @@ $colors = {}
             text-align center
             border-radius 100px
             background-color currentColor
+            transition background-color .2s
             
             &--vk
                 background-color #5181B8
+                
+                &:hover
+                    background-color darken(#5181B8, 20)
             
             &--tj
                 background-color #E8A427
+                
+                &:hover
+                    background-color darken(#E8A427, 20)
 
 .likely
 
