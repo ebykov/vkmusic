@@ -19,7 +19,8 @@ $colors = {}
 
 .VKMusic
     position relative
-    min-height 530px
+    // min-height 530px
+    min-height 490px
     padding-bottom 10px
     font-size 16px
     border 3px solid #6185C2
@@ -40,8 +41,11 @@ $colors = {}
     &-wrapper
         position relative
         min-height 100vh
-        padding 123px 0 75px
+        padding 15px 0
         overflow hidden
+        
+        @media $mq.desktop
+            padding 123px 0 75px
 
         &__grid
             position absolute
@@ -211,16 +215,22 @@ $colors = {}
             
         &__subtitle
             margin-top 8px
+            font-size 15px
             line-height 1.3em
             color #919191
             
             @media $mq.iphone6
                 margin-top 13px
+                font-size 16px
                 line-height 1.5em
+            
+            @media $mq.not_mobile
+                font-size 18px
             
         &__desc
             margin-top 12px
             color #fff
+            font-size 15px
             line-height: 1.5em;
 
             b
@@ -231,11 +241,15 @@ $colors = {}
             
             @media $mq.iphone6
                 margin-top 22px
+                font-size 16px
                 line-height 1.7em
+
+            @media $mq.not_mobile
+                font-size 18px
                 
         &__start-btn
             position relative
-            height 52px
+            height 42px
             padding 0 51px 0 46px
             margin-top 12px
             font-weight 700
@@ -255,6 +269,7 @@ $colors = {}
                 background-color #404040
                 
             @media $mq.iphone6
+                height 52px
                 margin-top 20px
 
     &-art
@@ -412,7 +427,10 @@ $colors = {}
             display flex
             align-items flex-end
             color #fff
-            line-height 1.75em
+            line-height 1.5em
+            
+            @media $mq.iphone6
+                line-height 1.75em
 
             @media $mq.not_mobile
                 height 138px
@@ -433,10 +451,11 @@ $colors = {}
             flex-wrap wrap
             align-items center
             margin -15px 0 0 -15px
-            padding-top 43px
+            padding-top 28px
             
             @media $mq.iphone6
                 margin -25px 0 0 -25px
+                padding-top 43px
             
         &__options-item
             padding 15px 0 0 15px
@@ -446,7 +465,7 @@ $colors = {}
         
         &__option
             min-width 227px
-            height 52px
+            height 42px
             color #fff
             font-weight 700
             text-align center
@@ -458,20 +477,29 @@ $colors = {}
                 color #000
                 background-color #fff
             
+            @media $mq.iphone6
+                height 52px
+            
         &__user-answer
-            margin-top 66px
+            margin-top 56px
             color #FF3333
             font-size 24px
             font-weight 900
             
             &--correct
                 color #1FFF6B
+            
+            @media $mq.iphone6
+             margin-top 66px
 
         &__answer
             margin-top 9px
             color #fff
-            font-size 18px
-            line-height 1.75em
+            line-height 1.5em
+            
+            @media $mq.iphone6
+                font-size 18px
+                line-height 1.75em
             
             @media $mq.not_mobile
                 font-size 20px
@@ -563,7 +591,7 @@ $colors = {}
     &-result
         
         &__head
-            min-height 355px
+            min-height 325px
             padding 26px 20px 0 26px
             background-color #333333
             
@@ -615,12 +643,13 @@ $colors = {}
             
         &__title
             position relative
-            margin-top 25px
-            font-size 32px
+            margin-top 22px
+            font-size 28px
             font-weight 700
             color #fff
             
             @media $mq.not_mobile
+                margin-top 25px
                 font-size 36px
             
         &__subtitle
@@ -634,13 +663,16 @@ $colors = {}
             
         &__share
             position relative
-            margin-top 32px
+            margin-top 22px
             // margin-top 50px
+                
+            @media $mq.iphone6
+                margin-top 32px
             
         &__restart-btn
             position relative
             display inline-block
-            margin-top 42px
+            margin-top 30px
             padding-right 24px
             color #999
             cursor pointer
@@ -654,12 +686,15 @@ $colors = {}
             
             &:hover
                 color darken(#999, 20)
+                
+            @media $mq.iphone6
+                margin-top 42px
         
         &__bottom
             display flex
             justify-content center
             align-items flex-start
-            min-height 169px
+            min-height 159px
             padding-top 26px
             background-color #000
             
