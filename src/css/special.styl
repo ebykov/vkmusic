@@ -57,6 +57,7 @@ $colors = {}
                              linear-gradient(90deg, #191919 1px, transparent 1px)
             background-position 0 34px, 25px 0, 78px 0
             
+            filter blur(0)
             transform translate3d(0,0,0)
             transition filter .1s linear
             
@@ -98,8 +99,10 @@ $colors = {}
         position absolute
         top 50px
         left 0
-        transition filter .1s linear
+        
+        filter blur(0)
         transform translate3d(0,0,0)
+        transition filter .1s linear
         
         will-change filter
         
@@ -123,14 +126,6 @@ $colors = {}
         bottom 0
         left 10px
         right 10px
-        transition filter .1s linear
-        transform translate3d(0,0,0)
-        
-        will-change filter
-        
-        .is-blurred &
-            filter blur(2px)
-            transition filter .3s linear
 
         @media $mq.not_mobile
             left 104px
@@ -144,7 +139,16 @@ $colors = {}
             width 2px
             background-color #E5E5E5
             opacity .5
-            will-change left
+
+            filter blur(0)
+            transform translate3d(0,0,0)
+            transition filter .1s linear
+            
+            will-change filter
+            
+            .is-blurred &
+                filter blur(2px)
+                transition filter .3s linear
             
             &::before
                 content ''
@@ -249,8 +253,10 @@ $colors = {}
         left 105px
         right 0
         opacity .5
-        transition filter .1s linear
+
+        filter blur(0)
         transform translate3d(0,0,0)
+        transition filter .1s linear
         
         will-change filter
         
@@ -258,7 +264,7 @@ $colors = {}
             opacity .25
             
         .is-blurred &
-            filter blur(7px)
+            filter blur(6px)
             transition filter .3s linear
         
         &__line
