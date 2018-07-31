@@ -479,11 +479,16 @@ $colors = {}
             text-align center
             border 3px solid  #fff
             background-color transparent
-            transition color .2s, background-color .2s
-        
-            &:hover
-                color #000
-                background-color #fff
+
+            @media (hover), (min-width:0\0), (min--moz-device-pixel-ratio:0)
+                transition color .2s, background-color .2s
+                &:hover
+                    color #000
+                    background-color #fff
+
+            // &:hover
+            //     color #000
+            //     background-color #fff
             
             @media $mq.iphone6
                 min-width 227px

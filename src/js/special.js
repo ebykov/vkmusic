@@ -267,6 +267,8 @@ class Special extends BaseSpecial {
         animate(EL.qTextDiv, 'fadeInUp', '600ms', '100ms');
         animate(EL.qAudio, 'fadeInUp', '600ms', '300ms');
         animate(EL.qOptions, 'fadeInUp', '600ms', '400ms');
+
+        // document.activeElement.blur();
     }
 
     makeOptions(options) {
@@ -285,8 +287,6 @@ class Special extends BaseSpecial {
 
             EL.qOptions.appendChild(optionWrap);
         });
-
-        document.activeElement.blur();
     }
 
     makeAnswer(el) {
