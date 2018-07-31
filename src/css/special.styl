@@ -19,8 +19,6 @@ $colors = {}
 
 .VKMusic
     position relative
-    // min-height 530px
-    // min-height 490px
     min-height 420px
     padding-bottom 10px
     font-size 16px
@@ -33,9 +31,10 @@ $colors = {}
         border-color #333
         
     @media $mq.iphone6
-        min-height 600px
+        min-height 530px
     
     @media $mq.not_mobile
+        min-height 600px
         padding-bottom 0
         font-size 18px
 
@@ -193,11 +192,9 @@ $colors = {}
         
         @media $mq.iphone6
             max-width 506px
-            padding-top 105px
             padding-left 52px
 
         @media $mq.not_mobile
-            max-width 506px
             padding 0
             margin-top 105px
             margin-left 104px
@@ -221,11 +218,11 @@ $colors = {}
             color #919191
             
             @media $mq.iphone6
-                margin-top 13px
                 font-size 16px
                 line-height 1.5em
             
             @media $mq.not_mobile
+                margin-top 13px
                 font-size 18px
             
         &__desc
@@ -241,13 +238,14 @@ $colors = {}
                 margin-bottom .556em
             
             @media $mq.iphone6
-                margin-top 22px
                 font-size 16px
-                line-height 1.7em
+                line-height 1.5em
 
             @media $mq.not_mobile
+                margin-top 22px
                 font-size 18px
-                
+                line-height 1.7em
+
         &__start-btn
             position relative
             height 42px
