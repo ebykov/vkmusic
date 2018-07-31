@@ -116,7 +116,6 @@ class Special extends BaseSpecial {
 
     createResult() {
         EL.result = makeElement('div', CSS.main + '-result');
-        EL.rImg = makeElement('img', CSS.main + '-result__img');
         EL.rHead = makeElement('div', CSS.main + '-result__head');
         EL.rResult = makeElement('div', CSS.main + '-result__result');
         EL.rTitle = makeElement('div', CSS.main + '-result__title');
@@ -137,18 +136,23 @@ class Special extends BaseSpecial {
             innerHTML: '<div class="VKMusic-subscribe"><div class="VKMusic-subscribe__title"><span>Подписка на<br>TJournal</span>' + '<span class="VKMusic-subscribe__icon VKMusic-subscribe__icon--tj">' + Svg.users + '</span>' + '</div><button class="VKMusic-subscribe__btn VKMusic-subscribe__btn--tj">Получить</button></div>'
         });
 
-        EL.rHead.appendChild(EL.rImg);
         EL.rHead.appendChild(EL.rResult);
         EL.rHead.appendChild(EL.rTitle);
         EL.rHead.appendChild(EL.rSubtitle);
         EL.rHead.appendChild(EL.rShare);
         EL.rHead.appendChild(EL.rRestartBtn);
 
-        // EL.rBottom.appendChild(EL.subscribeVK);
-        // EL.rBottom.appendChild(EL.subscribeTJ);
-
         EL.result.appendChild(EL.rHead);
         EL.result.appendChild(EL.rBottom);
+
+        EL.rImages = [];
+        Data.results.forEach((item, index) => {
+            let img = makeElement('img', [CSS.main + '-result__img', CSS.main + '-result__img--' + (index + 1)], {
+                src: item.img
+            });
+
+            EL.rImages.push(img);
+        });
     }
 
     drawArt(data) {
@@ -268,7 +272,6 @@ class Special extends BaseSpecial {
         animate(EL.qAudio, 'fadeInUp', '600ms', '300ms');
         animate(EL.qOptions, 'fadeInUp', '600ms', '400ms');
 
-        // document.activeElement.blur();
     }
 
     makeOptions(options) {
@@ -344,10 +347,7 @@ class Special extends BaseSpecial {
             if (item.range[0] <= this.correctAnswers && item.range[1] >= this.correctAnswers) {
                 EL.rTitle.textContent = item.title;
                 EL.rSubtitle.textContent = item.subtitle;
-                EL.rImg.src = item.img;
-                EL.rImg.className = '';
-                EL.rImg.classList.add(CSS.main + '-result__img');
-                EL.rImg.classList.add(CSS.main + '-result__img--' + (index + 1));
+                EL.rHead.appendChild(EL.rImages[index]);
 
                 removeChildren(EL.rShare);
                 Share.make(EL.rShare, {
@@ -362,7 +362,6 @@ class Special extends BaseSpecial {
         removeChildren(EL.rBottom);
         this.correctAnswers >= 8 ? EL.rBottom.appendChild(EL.subscribeVK) : EL.rBottom.appendChild(EL.subscribeTJ);
 
-        // Share.init();
     }
 
     setInitialParams() {
