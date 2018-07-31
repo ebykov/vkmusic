@@ -149,8 +149,6 @@ class Special extends BaseSpecial {
 
         EL.result.appendChild(EL.rHead);
         EL.result.appendChild(EL.rBottom);
-
-        Share.make(EL.rShare);
     }
 
     drawArt(data) {
@@ -287,6 +285,8 @@ class Special extends BaseSpecial {
 
             EL.qOptions.appendChild(optionWrap);
         });
+
+        document.activeElement.blur();
     }
 
     makeAnswer(el) {
@@ -349,6 +349,12 @@ class Special extends BaseSpecial {
                 EL.rImg.classList.add(CSS.main + '-result__img');
                 EL.rImg.classList.add(CSS.main + '-result__img--' + (index + 1));
 
+                removeChildren(EL.rShare);
+                Share.make(EL.rShare, {
+                    title: item.title,
+                    twitter: item.title
+                });
+
                 return true;
             }
         });
@@ -356,7 +362,7 @@ class Special extends BaseSpecial {
         removeChildren(EL.rBottom);
         this.correctAnswers >= 8 ? EL.rBottom.appendChild(EL.subscribeVK) : EL.rBottom.appendChild(EL.subscribeTJ);
 
-        Share.init();
+        // Share.init();
     }
 
     setInitialParams() {
