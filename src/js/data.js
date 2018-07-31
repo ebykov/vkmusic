@@ -220,7 +220,7 @@ export default {
             }]
         }, {
             text: "Ностальгический трек, вспомните исполнителя?",
-            track: "https://leonardo.osnova.io/audio/222bea1b-339b-8bae-aed4-68bf3799b484/3-track.mp3",
+            track: "https://leonardo.osnova.io/audio/691fa468-1838-891b-fd2b-7fa70b55749b/3-track2.mp3",
             art: [{
                 x: 7,
                 y: 0,
