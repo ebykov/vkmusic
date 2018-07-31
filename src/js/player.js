@@ -102,6 +102,7 @@ export default class Player {
 
         this.setPathProgress(0);
         this.setCurrentTime(0);
+
         this.audio.src = link;
         this.audio.load();
     }

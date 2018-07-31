@@ -355,7 +355,9 @@ class Special extends BaseSpecial {
                     twitter: item.title
                 });
 
-                return true;
+                // return true;
+            } else if (EL.rHead.contains(EL.rImages[index])) {
+                EL.rHead.removeChild(EL.rImages[index]);
             }
         });
 
