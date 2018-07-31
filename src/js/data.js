@@ -406,21 +406,25 @@ export default {
         range: [0, 2],
         title: "Пропускаю, пропускаю!",
         subtitle: "На шоу Валдиса Пельша вам лучше не ходить",
-        img: "img/results/1.png"
+        img: "img/results/1.png",
+        img2x: "img/results/1@2x.png"
     }, {
         range: [3, 5],
         title: "Ага, ну",
         subtitle: "Вы больше по классике",
-        img: "img/results/2.png"
+        img: "img/results/2.png",
+        img2x: "img/results/2@2x.png"
     }, {
         range: [6, 8],
         title: "Реп — мой хлеб",
         subtitle: "Вы знаете всех Lil’ов",
-        img: "img/results/3.png"
+        img: "img/results/3.png",
+        img2x: "img/results/3@2x.png"
     }, {
         range: [9, 10],
         title: "Меломан",
         subtitle: "Знаете всю музыку — от йодля до трип-хопа",
-        img: "img/results/4.png"
+        img: "img/results/4.png",
+        img2x: "img/results/4@2x.png"
     }]
 };

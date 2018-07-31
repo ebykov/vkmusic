@@ -148,7 +148,8 @@ class Special extends BaseSpecial {
         EL.rImages = [];
         Data.results.forEach((item, index) => {
             let img = makeElement('img', [CSS.main + '-result__img', CSS.main + '-result__img--' + (index + 1)], {
-                src: item.img
+                src: item.img,
+                srcset: item.img2x + ' 2x'
             });
 
             EL.rImages.push(img);
