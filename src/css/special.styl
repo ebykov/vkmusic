@@ -73,9 +73,13 @@ $colors = {}
                 -webkit-filter blur(3px)
                 transition filter .3s linear
                 
-            @media (min-width 1090px)
+            // @media (min-width 1090px)
+            @media $mq.tablet, (min-width 1340px)
                 background-position 0 34px, calc(50% - 53px) 0, center 0
-                
+
+            @media (min-width 1025px) and (max-width 1339px)
+                background-position 0 34px, calc(50% - 33px) 0, calc(50% + 20px) 0
+
     &-container
         padding 0 15px
         
