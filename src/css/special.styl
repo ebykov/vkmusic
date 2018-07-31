@@ -31,7 +31,7 @@ $colors = {}
         border-color #333
         
     @media $mq.iphone6
-        min-height 530px
+        min-height 520px
     
     @media $mq.not_mobile
         min-height 600px
@@ -430,15 +430,16 @@ $colors = {}
             line-height 1.3em
             
             @media $mq.iphone6
-                font-size 18px
-                line-height 1.75em
+                font-size 16px
+                line-height 1.5em
 
             @media $mq.not_mobile
                 height 138px
                 margin-top 0
-                transition margin-top .1s
-                
+                font-size 18px
+                line-height 1.75em
                 transform translate3d(0,0,0)
+                transition margin-top .1s
 
                 &--a
                     margin-top -26px
@@ -453,15 +454,21 @@ $colors = {}
             align-items center
             margin -10px 0 0 -10px
             padding-top 24px
-            
+
             @media $mq.iphone6
+                margin -20px 0 0 -20px
+
+            @media $mq.not_mobile
                 margin -25px 0 0 -25px
                 padding-top 43px
-            
+
         &__options-item
             padding 10px 0 0 10px
             
             @media $mq.iphone6
+                padding 20px 0 0 20px
+            
+            @media $mq.not_mobile
                 padding 25px 0 0 25px
         
         &__option
@@ -501,10 +508,11 @@ $colors = {}
             
             @media $mq.iphone6
                 font-size 18px
-                line-height 1.75em
+                line-height 1.5em
             
             @media $mq.not_mobile
                 font-size 20px
+                line-height 1.75em
             
         &__next-btn
             position relative
@@ -600,11 +608,13 @@ $colors = {}
             overflow hidden
             
             @media $mq.iphone6
-                min-height 375px
-                padding-top 52px
+                min-height 335px
+                padding-top 26px
                 padding-left 52px
 
             @media $mq.not_mobile
+                min-height 375px
+                padding-top 52px
                 padding-left 124px
 
             @media $mq.desktop
@@ -703,6 +713,10 @@ $colors = {}
             background-color #000
             
             @media $mq.iphone6
+                min-height 179px
+                padding-top 26px
+            
+            @media $mq.not_mobile
                 min-height 225px
                 padding-top 52px
     
