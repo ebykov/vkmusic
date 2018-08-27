@@ -80,11 +80,37 @@ class Special extends BaseSpecial {
         EL.question.appendChild(EL.qAudio);
         // question end
 
+        EL.comment = makeElement('div', CSS.main + '-comment');
+        EL.cAvatar = makeElement('div', CSS.main + '-comment__avatar', {
+            data: {
+                click: 'togglePopover'
+            }
+        });
+        EL.cName = makeElement('div', CSS.main + '-comment__name');
+        EL.cPopover = makeElement('div', CSS.main + '-comment__popover');
+        EL.cText = makeElement('div', CSS.main + '-comment__text');
+        EL.cClose = makeElement('div', CSS.main + '-comment__close', {
+            data: {
+                click: 'togglePopover'
+            }
+        });
+
+        EL.cPopover.appendChild(EL.cText);
+        EL.cPopover.appendChild(EL.cClose);
+        EL.comment.appendChild(EL.cAvatar);
+        EL.comment.appendChild(EL.cName);
+        EL.comment.appendChild(EL.cPopover);
+
         this.container.appendChild(EL.logo);
         this.container.appendChild(EL.icons);
         this.container.appendChild(EL.slider);
         this.container.appendChild(EL.art);
 
+    }
+
+    togglePopover() {
+        EL.cPopover.style.display = this.commentIsClose ? 'block' : 'none';
+        this.commentIsClose = !this.commentIsClose;
     }
 
     createEnter() {
@@ -245,6 +271,8 @@ class Special extends BaseSpecial {
         EL.question.removeChild(EL.qUserAnswer);
         EL.question.removeChild(EL.qAnswer);
 
+        this.container.contains(EL.comment) ? this.container.removeChild(EL.comment) : '';
+
         EL.question.contains(EL.qNextBtn) ? EL.question.removeChild(EL.qNextBtn) :
             EL.question.contains(EL.qResultBtn) ? EL.question.removeChild(EL.qResultBtn) : '';
 
@@ -304,6 +332,15 @@ class Special extends BaseSpecial {
         EL.question.appendChild(EL.qUserAnswer);
         EL.qAnswer.textContent = question.options[id].msg;
         EL.question.appendChild(EL.qAnswer);
+
+        if (question.comment) {
+            this.container.appendChild(EL.comment);
+            this.commentIsClose = false;
+            EL.cAvatar.style.backgroundImage = 'url(' + question.comment.avatar + ')';
+            EL.cName.innerHTML = question.comment.name;
+            EL.cPopover.style.display = 'block';
+            EL.cText.innerHTML = question.comment.text;
+        }
 
         if (question.options[id].isCorrect) {
             EL.qUserAnswer.classList.add(CSS.main + '-question__user-answer--correct');
