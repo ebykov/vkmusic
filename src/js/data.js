@@ -169,7 +169,7 @@ export default {
     {
         title: "треки",
         list: [{
-            text: "Кто исполнил оригинал этой песни? Подсказка: не Фред Дёрст из Limp Bizkit",
+            text: "Кто исполнил оригинал этой песни? Подсказка: не Фред Дёрст из Limp Bizkit.",
             track: "https://leonardo.osnova.io/audio/40f45c40-5e68-b24d-6226-d59cd3b67e9a/1-track.mp3",
             comment: {
                 avatar: "img/stars/kirill-hleb.jpg",
