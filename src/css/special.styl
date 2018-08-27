@@ -892,46 +892,45 @@ $colors = {}
                 min-width 180px
                 height 45px
 
-.likely
+    .likely
 
-    &__widget
-        min-width 60px
-        height 50px
-        color #999
-        border 2px solid  #999
-        background-color #333
+        &__widget
+            min-width 60px
+            height 50px
+            color #999
+            border 2px solid  #999
+            background-color #333
 
-        &:not(:last-child)
-            margin-right 10px
+            &:not(:last-child)
+                margin-right 10px
+            
+            &:hover
+                color #333
+                background-color #999
+
+            &--vkontakte
+                
+                @media $mq.not_mobile
+                    padding: 0 15px 0 10px
         
-        &:hover
-            color #333
-            background-color #999
-
-        &--facebook
+        &__button--vkontakte
+            display none
             
             @media $mq.not_mobile
-                padding: 0 15px 0 10px
-    
-    &__button--facebook
-        display none
-        
-        @media $mq.not_mobile
-            display block
+                display block
 
-    &__icon
-        background-color transparent
+        &__icon
+            background-color transparent
 
-        svg
-            width: 24px
-            height: @width
-
-        &--vkontakte
             svg
-                width: 28px
+                width: 24px
                 height: @width
 
-        &--facebook
+            &--vkontakte
 
-            @media $mq.not_mobile
-                margin-right 6px
+                svg
+                    width: 28px
+                    height: @width
+
+                @media $mq.not_mobile
+                    margin-right 6px
