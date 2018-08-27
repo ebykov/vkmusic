@@ -8,6 +8,7 @@ import * as Analytics from './lib/analytics';
 import { makeElement, removeChildren } from './lib/dom';
 import Player from './player';
 import animate from './lib/animate';
+import PerfectScrollbar from 'perfect-scrollbar';
 
 const CSS = {
     main: 'VKMusic',
@@ -88,13 +89,15 @@ class Special extends BaseSpecial {
         });
         EL.cName = makeElement('div', CSS.main + '-comment__name');
         EL.cPopover = makeElement('div', CSS.main + '-comment__popover');
-        EL.cText = makeElement('div', CSS.main + '-comment__text');
+        EL.cText = makeElement('div', [CSS.main + '-comment__text', 'js-perfect-scrollbar']);
+        EL.cTextInner = makeElement('div', CSS.main + '-comment__text-inner');
         EL.cClose = makeElement('div', CSS.main + '-comment__close', {
             data: {
                 click: 'togglePopover'
             }
         });
 
+        EL.cText.appendChild(EL.cTextInner);
         EL.cPopover.appendChild(EL.cText);
         EL.cPopover.appendChild(EL.cClose);
         EL.comment.appendChild(EL.cAvatar);
@@ -109,7 +112,7 @@ class Special extends BaseSpecial {
     }
 
     togglePopover() {
-        EL.cPopover.style.display = this.commentIsClose ? 'block' : 'none';
+        this.commentIsClose ? EL.comment.classList.remove('is-closed') : EL.comment.classList.add('is-closed');
         this.commentIsClose = !this.commentIsClose;
     }
 
@@ -335,11 +338,19 @@ class Special extends BaseSpecial {
 
         if (question.comment) {
             this.container.appendChild(EL.comment);
+            EL.comment.classList.remove('is-closed');
             this.commentIsClose = false;
             EL.cAvatar.style.backgroundImage = 'url(' + question.comment.avatar + ')';
             EL.cName.innerHTML = question.comment.name;
-            EL.cPopover.style.display = 'block';
-            EL.cText.innerHTML = question.comment.text;
+            EL.cTextInner.innerHTML = question.comment.text;
+
+            if (this.commentPS) {
+                this.commentPS.update();
+            } else {
+                this.commentPS = new PerfectScrollbar('.js-perfect-scrollbar');
+            }
+
+            console.log(this.commentPS);
         }
 
         if (question.options[id].isCorrect) {

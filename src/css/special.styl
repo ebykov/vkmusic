@@ -8,6 +8,8 @@
 @import 'base'
 @import 'animations'
 
+@import '~perfect-scrollbar/css/perfect-scrollbar.css'
+
 $colors = {}
 
 
@@ -555,7 +557,7 @@ $colors = {}
         position absolute
         z-index 1
         top calc(100% + 30px)
-        
+
         @media $mq.not_mobile
             top auto
             bottom 33px
@@ -571,7 +573,26 @@ $colors = {}
             border-radius 100%
             background-size cover
             cursor pointer
-        
+            
+            &::after
+                content '1'
+                position absolute
+                top -4px
+                right -4px
+                width 30px
+                height 30px
+                overflow hidden
+                color #fff
+                line-height 30px
+                text-align center
+                border-radius 100%
+                background-color #FF3333
+                transform scale(0)
+                transition transform .2s
+                
+                .is-closed &
+                    transform scale(1)
+
         &__name
             position absolute
             top 14px
@@ -587,7 +608,7 @@ $colors = {}
             bottom 100%
             width 225px
             margin-bottom 15px
-            padding 13px 30px 20px 17px
+            padding 13px 7px 20px 17px
             border-radius 20px
             background-color #5181B8
             user-select none
@@ -603,13 +624,18 @@ $colors = {}
                 border-style solid
                 border-width 25px 30px 0 0
                 border-color #5181B8 transparent transparent transparent
+                
+            .is-closed &
+                display none
             
             @media $mq.iphone6
                 width 285px
         
         &__text
+            position relative
             max-height 300px
             overflow auto
+            padding-right 10px
             color #fff
             line-height 1.6em
             
@@ -618,12 +644,13 @@ $colors = {}
         
         &__close
             position absolute
-            top 10px
-            right 13px
+            top -28px
+            right 0
             width 19px
             height 19px
             transform rotate(45deg)
             cursor pointer
+            opacity .5
             transition opacity .2s
             
             &::before, &::after
@@ -646,7 +673,7 @@ $colors = {}
                 height 100%
                 
             &:hover
-                opacity .4
+                opacity 1
 
 
     &-audio
@@ -934,3 +961,6 @@ $colors = {}
 
                 @media $mq.not_mobile
                     margin-right 6px
+                    
+    .ps__rail-y
+        opacity 1
