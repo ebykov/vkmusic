@@ -342,13 +342,14 @@ class Special extends BaseSpecial {
         EL.qAnswer.textContent = question.options[id].msg;
         EL.question.appendChild(EL.qAnswer);
 
-        if (question.comment) {
+        if (question.comments) {
+            let comment = question.comments[Math.floor(Math.random() * question.comments.length)];
             this.container.appendChild(EL.comment);
             EL.comment.classList.remove('is-opened');
             this.commentIsOpened = false;
-            EL.cAvatar.style.backgroundImage = 'url(' + question.comment.avatar + ')';
-            EL.cName.innerHTML = question.comment.name;
-            EL.cTextInner.innerHTML = question.comment.text;
+            EL.cAvatar.style.backgroundImage = 'url(' + comment.avatar + ')';
+            EL.cName.innerHTML = comment.name;
+            EL.cTextInner.innerHTML = comment.text;
         }
 
         if (question.options[id].isCorrect) {
