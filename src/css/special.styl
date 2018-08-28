@@ -587,11 +587,11 @@ $colors = {}
                 text-align center
                 border-radius 100%
                 background-color #FF3333
-                transform scale(0)
+                transform scale(1)
                 transition transform .2s
                 
-                .is-closed &
-                    transform scale(1)
+                .is-opened &
+                    transform scale(0)
 
         &__name
             position absolute
@@ -603,6 +603,7 @@ $colors = {}
             line-height 1.5em
         
         &__popover
+            display none
             position absolute
             left 48px
             bottom 100%
@@ -625,8 +626,8 @@ $colors = {}
                 border-width 25px 30px 0 0
                 border-color #5181B8 transparent transparent transparent
                 
-            .is-closed &
-                display none
+            .is-opened &
+                display block
             
             @media $mq.iphone6
                 width 285px

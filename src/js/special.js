@@ -112,8 +112,14 @@ class Special extends BaseSpecial {
     }
 
     togglePopover() {
-        this.commentIsClose ? EL.comment.classList.remove('is-closed') : EL.comment.classList.add('is-closed');
-        this.commentIsClose = !this.commentIsClose;
+        this.commentIsOpened ? EL.comment.classList.remove('is-opened') : EL.comment.classList.add('is-opened');
+        this.commentIsOpened = !this.commentIsOpened;
+
+        if (this.commentPS) {
+            this.commentPS.update();
+        } else {
+            this.commentPS = new PerfectScrollbar('.js-perfect-scrollbar');
+        }
     }
 
     createEnter() {
@@ -338,19 +344,11 @@ class Special extends BaseSpecial {
 
         if (question.comment) {
             this.container.appendChild(EL.comment);
-            EL.comment.classList.remove('is-closed');
-            this.commentIsClose = false;
+            EL.comment.classList.remove('is-opened');
+            this.commentIsOpened = false;
             EL.cAvatar.style.backgroundImage = 'url(' + question.comment.avatar + ')';
             EL.cName.innerHTML = question.comment.name;
             EL.cTextInner.innerHTML = question.comment.text;
-
-            if (this.commentPS) {
-                this.commentPS.update();
-            } else {
-                this.commentPS = new PerfectScrollbar('.js-perfect-scrollbar');
-            }
-
-            console.log(this.commentPS);
         }
 
         if (question.options[id].isCorrect) {
