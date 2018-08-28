@@ -165,7 +165,7 @@ class Special extends BaseSpecial {
 
         EL.rBottom = makeElement('div', CSS.main + '-result__bottom');
         EL.subscribeVK = makeElement('div', CSS.main + '-subscribe', {
-            innerHTML: '<div class="VKMusic-subscribe"><div class="VKMusic-subscribe__title"><span>Подписка на Boom и<br>музыку «ВКонтакте»</span>' + '<span class="VKMusic-subscribe__icon VKMusic-subscribe__icon--vk">' + Svg.note + '</span>' + '</div><button class="VKMusic-subscribe__btn VKMusic-subscribe__btn--vk">Получить</button></div>'
+            innerHTML: '<div class="VKMusic-subscribe"><div class="VKMusic-subscribe__title"><span>Подписка на Boom<br>и&nbsp;музыку «ВКонтакте»</span>' + '<span class="VKMusic-subscribe__icon VKMusic-subscribe__icon--vk">' + Svg.note + '</span>' + '</div><button class="VKMusic-subscribe__btn VKMusic-subscribe__btn--vk">Получить</button></div>'
         });
         EL.subscribeTJ = makeElement('div', CSS.main + '-subscribe', {
             innerHTML: '<div class="VKMusic-subscribe"><div class="VKMusic-subscribe__title"><span>Подписка на<br>TJournal</span>' + '<span class="VKMusic-subscribe__icon VKMusic-subscribe__icon--tj">' + Svg.users + '</span>' + '</div><button class="VKMusic-subscribe__btn VKMusic-subscribe__btn--tj">Получить</button></div>'
