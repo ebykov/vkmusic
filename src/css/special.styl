@@ -850,10 +850,12 @@ $colors = {}
         
         &__bottom
             display flex
+            flex-wrap wrap
             justify-content center
             align-items flex-start
             min-height 129px
             padding-top 16px
+            border-radius 0 0 8px 8px
             background-color #000
             
             @media $mq.iphone6
@@ -862,12 +864,20 @@ $colors = {}
             
             @media $mq.not_mobile
                 min-height 225px
-                padding-top 52px
+                padding-top 45px
+                padding-bottom 15px
     
     &-subscribe
         display flex
         flex-direction column
         align-items center
+        margin 0 25px 16px
+
+        @media $mq.iphone6
+            margin-bottom 26px
+    
+        @media $mq.not_mobile
+            margin-bottom 30px
 
         &__title
             position relative
@@ -877,13 +887,24 @@ $colors = {}
             line-height 1.5em
             text-align center
             
+            & span:first-child::after
+                content '*'
+                position absolute
+                color rgba(255,255,255,.3)
+                font-size 14px
+                letter-spacing .2em
+                transform translate3d(4px, -5px, 0)
+                
+            ^[-1]:nth-child(2) & span:first-child::after
+                content '**'
+
             @media $mq.iphone6
                 margin-bottom 19px
             
         &__icon
             position absolute
             top 12px
-            left -50px
+            left -37px
             
             &--vk
                 color #5181B8
@@ -919,6 +940,25 @@ $colors = {}
             @media $mq.iphone6
                 min-width 180px
                 height 45px
+                
+        &__notice
+            position relative
+            max-width 180px
+            margin-top 25px
+            color rgba(255,255,255,.3)
+            font-size 14px
+            line-height 1.4em
+            
+            &::after
+                content '*'
+                position absolute
+                top 0
+                left 0
+                transform translate3d(calc(-100% - 5px), -2px, 0)
+                letter-spacing .2em
+
+            ^[-1]:nth-child(2) &::after
+                content '**'
 
     .likely
 
