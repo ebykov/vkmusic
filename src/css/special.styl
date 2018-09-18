@@ -752,7 +752,7 @@ $colors = {}
                 padding-left 52px
 
             @media $mq.not_mobile
-                min-height 375px
+                min-height 374px
                 padding-top 52px
                 padding-left 124px
 
@@ -855,110 +855,65 @@ $colors = {}
             align-items flex-start
             min-height 129px
             padding-top 16px
+            padding-bottom 14px
             border-radius 0 0 8px 8px
             background-color #000
             
             @media $mq.iphone6
                 min-height 179px
                 padding-top 26px
+                padding-bottom 24px
             
             @media $mq.not_mobile
-                min-height 225px
-                padding-top 45px
-                padding-bottom 15px
-    
+                min-height 220px
+                padding-top 34px
+                padding-bottom 32px
+                
     &-subscribe
-        display flex
-        flex-direction column
-        align-items center
-        margin 0 25px 16px
-
-        @media $mq.iphone6
-            margin-bottom 26px
-    
-        @media $mq.not_mobile
-            margin-bottom 30px
-
-        &__title
-            position relative
-            margin-bottom 9px
-            color #fff
-            font-weight 700
-            line-height 1.5em
-            text-align center
-            
-            & span:first-child::after
-                content '*'
-                position absolute
-                color rgba(255,255,255,.3)
-                font-size 14px
-                letter-spacing .2em
-                transform translate3d(4px, -5px, 0)
-                
-            ^[-1]:nth-child(2) & span:first-child::after
-                content '**'
-
-            @media $mq.iphone6
-                margin-bottom 19px
-            
-        &__icon
-            position absolute
-            top 12px
-            left -37px
-            
-            &--vk
-                color #5181B8
-                
-            &--tj
-                color #E8A427
+        margin-left 16px
         
         &__btn
-            display block
-            min-width 150px
-            height 35px
-            overflow hidden
+            position relative
+            display inline-block
+            height 60px
+            padding 0 40px 0 70px
             color #fff
-            font-size 14px
             font-weight 700
-            text-align center
+            line-height 62px
             border-radius 100px
-            background-color currentColor
-            transition background-color .2s
+            background-color #5181B8
+            overflow hidden
+            cursor pointer
+            transition opacity .2s
             
-            &--vk
-                background-color #5181B8
+            & svg
+                position absolute
+                top 0
+                bottom 0
+                left 30px
+                margin auto 0
                 
-                &:hover
-                    background-color darken(#5181B8, 20)
+            &:hover
+                opacity .6
             
-            &--tj
-                background-color #E8A427
-                
-                &:hover
-                    background-color darken(#E8A427, 20)
-                    
-            @media $mq.iphone6
-                min-width 180px
-                height 45px
-                
         &__notice
             position relative
-            max-width 180px
-            margin-top 25px
+            width calc(100% - 16px)
+            max-width 316px
+            margin-top 17px
+            padding-left 25px
             color rgba(255,255,255,.3)
             font-size 14px
-            line-height 1.4em
+            line-height 1.2em
+            
+            & p:not(:last-child)
+                margin-bottom 10px
             
             &::after
                 content '*'
                 position absolute
-                top 0
-                left 0
-                transform translate3d(calc(-100% - 5px), -2px, 0)
-                letter-spacing .2em
-
-            ^[-1]:nth-child(2) &::after
-                content '**'
+                top -2px
+                left 10px
 
     .likely
 

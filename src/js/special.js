@@ -164,11 +164,13 @@ class Special extends BaseSpecial {
         });
 
         EL.rBottom = makeElement('div', CSS.main + '-result__bottom');
-        EL.subscribeVK = makeElement('div', CSS.main + '-subscribe', {
-            innerHTML: '<div class="VKMusic-subscribe__title"><span>Подписка на BOOM<br>и&nbsp;музыку «ВКонтакте»</span>' + '<span class="VKMusic-subscribe__icon VKMusic-subscribe__icon--vk">' + Svg.note + '</span>' + '</div><button class="VKMusic-subscribe__btn VKMusic-subscribe__btn--vk">Получить</button><div class="VKMusic-subscribe__notice">Подписка даётся только новым пользователям. Если у вас уже есть подписка на BOOM, смело жмите на соседнюю кнопку!</div>'
+
+        EL.subscribe = makeElement('div', CSS.main + '-subscribe');
+        EL.subscribeBtn = makeElement('div', CSS.main + '-subscribe__btn', {
+            innerHTML: Svg.gift + '<span>Получить подарок</span>'
         });
-        EL.subscribeTJ = makeElement('div', CSS.main + '-subscribe', {
-            innerHTML: '<div class="VKMusic-subscribe__title"><span>Подписка на<br>TJournal</span>' + '<span class="VKMusic-subscribe__icon VKMusic-subscribe__icon--tj">' + Svg.users + '</span>' + '</div><button class="VKMusic-subscribe__btn VKMusic-subscribe__btn--tj">Получить</button><div class="VKMusic-subscribe__notice">На месяц. Если подписка уже активна, к ней добавится месяц с сегодняшнего дня.</div>'
+        EL.subscribeNotice = makeElement('div', CSS.main + '-subscribe__notice', {
+            innerHTML: '<p>Авторизуйтесь через vk.com, чтобы&nbsp;получить подписку на BOOM.</p><p>Авторизовавшись через другие соцсети, вы получите подписку на TJournal.</p>'
         });
 
         EL.rHead.appendChild(EL.rResult);
@@ -189,6 +191,9 @@ class Special extends BaseSpecial {
 
             EL.rImages.push(img);
         });
+
+        EL.subscribe.appendChild(EL.subscribeBtn);
+        EL.subscribe.appendChild(EL.subscribeNotice);
     }
 
     drawArt(data) {
@@ -411,12 +416,7 @@ class Special extends BaseSpecial {
 
         removeChildren(EL.rBottom);
 
-        if (this.correctAnswers > 8) {
-            EL.rBottom.appendChild(EL.subscribeVK);
-            EL.rBottom.appendChild(EL.subscribeTJ);
-        } else {
-            EL.rBottom.appendChild(EL.subscribeTJ);
-        }
+        EL.rBottom.appendChild(EL.subscribe)
 
     }
 
